@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Diagram Collaboration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    
+</head>
+<body>
+    <div class="app-container">
+        <h1>Network Diagram Collaboration Tool</h1>
+        
+        <div class="control-panel">
+            <div class="data-input">
+                <input type="text" id="arrayInput" placeholder="[30, 40, 20, 10]">
+                <input type="text" id="indexInput" placeholder="['A', 'B', 'C', 'D']">
+                <input type="file" id="uploadfile" accept=".xlsx,.xls,.csv">
+                <button id="generateGraphBtn">Generate Charts</button>
+                <button id="downloadPdfBtn">Download PDF</button>
+            </div>
+            
+            <div class="collaboration-panel">
+                <h3>Real-time Collaboration</h3>
+                <input type="text" id="roomId" placeholder="Enter Room ID">
+                <button id="joinRoomBtn">Join / Create Room</button>
+                <button id="shareChartsBtn" disabled>Share Charts</button>
+                <div id="participantsList"></div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Line Chart</h3>
+                <canvas id="lineChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Bar Chart</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            
+            <div id="pieChartsContainer"></div>
+            <div id="doughnutChartsContainer"></div>
+            
+            <div class="chart-container">
+                <h3>Radar Chart</h3>
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
